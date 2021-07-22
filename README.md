@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# Boro - Spending and Income Analysis Chart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The following component has been made for Boro's Software Engineer Quiz. 
 
-## Available Scripts
+## Basic Requirements
+1. Input data might not be sorted by months. You will need to handle this.
+2. On load of the widget the latest month should be selected by default.
+3. The widget bars should be tappable by month like filters
+4. On Tapping the month on the chart or the bars specific spending data and income data should update on the widget
+5. Handle cases where only 2 months data is given instead of 4 months data. Graph would occupy the width of the screen accordingly.
+6. Show the budget line according to the overall_budget passed in the object.
+7. Convert months which are provided in numbers into specific readable format 10 - October , 9 - September. (You can use moment js or other libraries for this)
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Bonus Points
+1. Make the widget in a flex layout such that if the parent component includes the widget with flex 0.5 the height of the bars within the widgets change accordingly.
+2. Extra use cases and error handling with code comments.
+3. Make the budget line animated, i.e. once the screen loads, the budget line should rise to its intended position instead of it being there at the same static position all the time.
+  a. Screen loads with the bar chart and the budget line at the very bottom.
+  b. After a delay (say, 300ms) the line should start rising gradually and stop at its intended position.
+4. Making the widget modular
+5. Additional features that you think the widget should have (Mention these in a TODO comments section on your component)
