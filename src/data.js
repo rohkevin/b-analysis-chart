@@ -16,6 +16,10 @@ export const data = {
   {
     "month": 7,
     "spending": 400
+  },
+  {
+    "month": 6,
+    "spending": 400
   }
   ],
 "income": [
@@ -34,6 +38,10 @@ export const data = {
   {
     "month": 8,
     "income": 575.55
+  },
+  {
+    "month": 11,
+    "income": 123
   }
   ]
 }
