@@ -6,6 +6,7 @@ const initialState = {
   budget: 0,
   spendings: [],
   incomes: [],
+  data: [],
   monthData: {spending: 0, income: 0}
 }
 export const GlobalContext = createContext(initialState);
@@ -13,25 +14,31 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
+  const getData = () => {
+    dispatch({
+      type: 'GET_DATA',
+      payload: data
+    })
+  }
   const getBudget = () => {
     dispatch({
       type: 'GET_BUDGET',
       payload: data.overall_budget
     })
   }
-  const getSpendings = () => {
-    // Use try catch if getting data from server
-    dispatch({
-      type: 'GET_SPENDINGS',
-      payload: data.spending
-    })
-  }
-  const getIncomes = () => {
-    dispatch({
-      type: 'GET_INCOMES',
-      payload: data.income
-    })
-  }
+  // const getSpendings = () => {
+  //   // Use try catch if getting data from server
+  //   dispatch({
+  //     type: 'GET_SPENDINGS',
+  //     payload: data.spending
+  //   })
+  // }
+  // const getIncomes = () => {
+  //   dispatch({
+  //     type: 'GET_INCOMES',
+  //     payload: data.income
+  //   })
+  // }
   const getMonthData = (month) => {
     dispatch({
       type: 'GET_MONTH_DATA',
@@ -42,11 +49,12 @@ export const GlobalProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider value ={{
+      data: state.data,
       budget: state.budget,
       spendings: state.spendings,
       incomes: state.incomes,
       monthData: state.monthData,
-      getBudget, getSpendings, getIncomes, getMonthData,
+      getData, getBudget, getMonthData,
 
     }}>
       { children }
