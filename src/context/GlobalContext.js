@@ -4,10 +4,8 @@ import { data } from '../data.js'
 
 const initialState = {
   budget: 0,
-  spendings: [],
-  incomes: [],
   data: [],
-  monthData: {spending: 0, income: 0}
+  monthData: {month: '', spending: 0, income: 0}
 }
 export const GlobalContext = createContext(initialState);
 

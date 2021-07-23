@@ -1,3 +1,5 @@
+import { compareMonths } from "../helper/helper";
+
 export const AppReducer = (state, action) => {
   switch(action.type) {
     case 'GET_DATA':
@@ -5,7 +7,6 @@ export const AppReducer = (state, action) => {
       let { spending, income } = action.payload;
       // Case I: Ideal case
       // Case II: Same length, different spending and income months (11 in spending, 6 in income)
-      // newData = spending.slice();
       newData = spending.map(spendingItem => {
         return {
           month: spendingItem.month,
@@ -27,7 +28,8 @@ export const AppReducer = (state, action) => {
           });
         }
       })
-      console.log(newData);
+      // Use helper function compareMonths to sort months in chronological order
+      newData.sort(compareMonths);
       return {
         ...state,
         data: newData
@@ -37,18 +39,6 @@ export const AppReducer = (state, action) => {
         ...state,
         budget: action.payload
       }
-
-    // case 'GET_SPENDINGS':
-    //   return {
-    //     ...state,
-    //     spendings: action.payload
-    //   }
-    
-    // case 'GET_INCOMES':
-    //   return {
-    //     ...state,
-    //     incomes: action.payload
-    //   }
 
     default: 
       return state;
