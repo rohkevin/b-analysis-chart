@@ -51,8 +51,8 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider value ={{
       data: state.data,
       budget: state.budget,
-      spendings: state.spendings,
-      incomes: state.incomes,
+      // spendings: state.spendings,
+      // incomes: state.incomes,
       monthData: state.monthData,
       getData, getBudget, getMonthData,
 

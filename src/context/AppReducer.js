@@ -5,17 +5,29 @@ export const AppReducer = (state, action) => {
       let { spending, income } = action.payload;
       // Case I: Ideal case
       // Case II: Same length, different spending and income months (11 in spending, 6 in income)
-      newData = spending.slice();
+      // newData = spending.slice();
+      newData = spending.map(spendingItem => {
+        return {
+          month: spendingItem.month,
+          spending: spendingItem.spending,
+          income: 0, // Initialize to 0
+        }
+      })
+      
       income.forEach(incomeItem => {
         let existingMonthData = newData.find(spendingItem => spendingItem.month === incomeItem.month);
         if (existingMonthData) {
           existingMonthData.income = incomeItem.income;
         }
         else {
-          newData.push(incomeItem);
+          newData.push({
+            month: incomeItem.month,
+            spending: 0,
+            income: incomeItem.income
+          });
         }
       })
-
+      console.log(newData);
       return {
         ...state,
         data: newData
