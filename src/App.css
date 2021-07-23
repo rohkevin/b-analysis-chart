@@ -1,0 +1,9 @@
+#app-container {
+  background-color: var(--backgroundColor);
+  width: 100vw;
+  min-height: 100vh;
+}
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+}
