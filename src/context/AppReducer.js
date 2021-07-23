@@ -30,9 +30,16 @@ export const AppReducer = (state, action) => {
       })
       // Use helper function compareMonths to sort months in chronological order
       newData.sort(compareMonths);
+      // Initializes default month value to the last month in the array
+      let initialMonth = {
+        month: newData[newData.length-1].month,
+        spending: newData[newData.length-1].spending,
+        income: newData[newData.length-1].income
+      }
       return {
         ...state,
-        data: newData
+        data: newData,
+        monthData: initialMonth
       }
     case 'GET_BUDGET':
       return {
