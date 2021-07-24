@@ -1,9 +1,84 @@
+:root {
+  --backgroundColor: #172041;
+  --spendingColor: #428DFC;
+  --incomeColor: #0CE381;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  text-decoration: none;
+  color: #fff;
+}
+.spending-color {
+  background-color: var(--spendingColor);
+  color: var(--spendingColor);
+}
+.income-color {
+  background-color: var(--incomeColor);
+  color: var(--incomeColor);
+}
+
 #app-container {
-  background-color: var(--backgroundColor);
   width: 100vw;
   min-height: 100vh;
+  display: grid;
+  place-items: center;
+  /* overflow: hidden; */
 }
+#component-container {
+  border: 1px solid;
+  width: 100%;
+  max-width: 100%;
+  padding: 2em;
+  background-color: var(--backgroundColor);
+}
+
+/* *********************************** */
+/* ********* HEADER COMPONENT ******** */
+/* *********************************** */
+.chart-header{
+  margin: 0.5em 0;
+}
+.header-spending-income-container {
+  display: flex;
+  margin: 0.5em 0;
+}
+.header-spending-income {
+  display: grid;
+  grid-template-areas:  "dot label"
+                        ". amount";
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 0.25em;
+  margin-right: 1em;
+}
+.dot {
+  grid-area: dot;
+  align-self: center;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+.header-label {
+  grid-area: label;
+  display: grid;
+  place-items: center;
+}
+
+.header-label-amount {
+  grid-area: amount;
+}
+.dollar {
+  font-weight: 800;
+}
+/* *********************************** */
+/* ********* CHART COMPONENT ******** */
+/* *********************************** */
 .chart-container {
+  border: 1px solid;
   display: flex;
   justify-content: space-between;
 }
