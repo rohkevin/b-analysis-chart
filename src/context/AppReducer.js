@@ -9,6 +9,7 @@ export const AppReducer = (state, action) => {
       // Case I: Ideal case
       // Case II: Same length, different spending and income months (11 in spending, 6 in income)
       newData = spending.map(spendingItem => {
+
         return {
           month: spendingItem.month,
           monthToText: moment().month(spendingItem.month-1).format("MMMM"),
@@ -45,12 +46,29 @@ export const AppReducer = (state, action) => {
         data: newData,
         monthData: initialMonth
       }
+
     case 'GET_BUDGET':
       return {
         ...state,
         budget: action.payload
       }
 
+    case 'FIND_MAX':
+      let newMaxValue = 0;
+      const {data} = state;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].spending > newMaxValue) {
+          newMaxValue = data[i].spending;
+        }
+        if (data[i].income > newMaxValue) {
+          newMaxValue = data[i].income;
+        }
+      }
+      return {
+        ...state,
+        maxValue: newMaxValue
+      }
+      
     default: 
       return state;
   }

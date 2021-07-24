@@ -7,8 +7,10 @@ function App() {
   return (
     <GlobalProvider >
       <div id="app-container">
-        <MonthData />
-        <ChartContainer />
+        <div id="component-container">
+          <MonthData />
+          <ChartContainer />
+        </div>
       </div>
     </GlobalProvider>
   );

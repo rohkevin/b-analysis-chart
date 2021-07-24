@@ -5,7 +5,8 @@ import { data } from '../data.js'
 const initialState = {
   budget: 0,
   data: [],
-  monthData: {month: '', monthToText: '', spending: 0, income: 0}
+  monthData: {month: '', monthToText: '', spending: 0, income: 0},
+  maxValue: 0,
 }
 export const GlobalContext = createContext(initialState);
 
@@ -30,6 +31,11 @@ export const GlobalProvider = ({ children }) => {
       payload: month
     })
   }
+  const findMax = () => {
+    dispatch({
+      type: 'FIND_MAX'
+    })
+  }
 
 
   return (
@@ -39,8 +45,9 @@ export const GlobalProvider = ({ children }) => {
       // spendings: state.spendings,
       // incomes: state.incomes,
       monthData: state.monthData,
+      maxValue: state.maxValue,
       getData, getBudget, getMonthData,
-
+      findMax,
     }}>
       { children }
     </GlobalContext.Provider>
