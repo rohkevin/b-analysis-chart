@@ -2,6 +2,7 @@ import { compareMonths } from "../helper/helper";
 import moment from 'moment';
 
 export const AppReducer = (state, action) => {
+  const {data} = state;
   switch(action.type) {
     case 'GET_DATA':
       let newData = [];
@@ -55,7 +56,7 @@ export const AppReducer = (state, action) => {
 
     case 'FIND_MAX':
       let newMaxValue = 0;
-      const {data} = state;
+      
       for (let i = 0; i < data.length; i++) {
         if (data[i].spending > newMaxValue) {
           newMaxValue = data[i].spending;
@@ -68,7 +69,14 @@ export const AppReducer = (state, action) => {
         ...state,
         maxValue: newMaxValue
       }
-      
+    
+    case 'GET_MONTH_DATA':
+      let newMonthData = data.find(dataMonth => dataMonth.month === action.payload);
+      return {
+        ...state,
+        monthData: newMonthData
+      }
+
     default: 
       return state;
   }

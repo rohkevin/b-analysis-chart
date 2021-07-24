@@ -2,6 +2,7 @@
   --backgroundColor: #172041;
   --spendingColor: #428DFC;
   --incomeColor: #0CE381;
+  --textColor: #f6f5f8;
 }
 * {
   margin: 0;
@@ -10,7 +11,7 @@
   font-size: 16px;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
   text-decoration: none;
-  color: #fff;
+  color: var(--textColor);
 }
 p {
   font-weight: 300;
@@ -128,8 +129,30 @@ p {
 }
 
 .graph-label {
-  margin-top: 0.25em;
+  margin-top: 0.5em;
+  padding: 0.25em;
   text-align: center;
   text-transform: uppercase;
   font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.highlight-label-background {
+  background-color: var(--textColor);
+  
+}
+.label-text::after {
+  display: block;
+  content: attr(title);
+  font-weight: 600;
+  height: 1px;
+  color: transparent;
+  overflow: hidden;
+  visibility: hidden;
+}
+.highlight-label-text {
+  background-image: linear-gradient(135deg, #2cd5ff, #b15eff);
+  background-clip: text;
+  color: transparent;
+  font-weight: 600; 
 }
