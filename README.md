@@ -19,8 +19,8 @@ Additional features have been included in the TODO comments section in App.js.
 2. Extra use cases and error handling with code comments.
 3. Make the budget line animated, i.e. once the screen loads, the budget line should rise to its intended position instead of it being there at the same static position all the time.
 
-...a. Screen loads with the bar chart and the budget line at the very bottom.
-...b. After a delay (say, 300ms) the line should start rising gradually and stop at its intended position.
+   a. Screen loads with the bar chart and the budget line at the very bottom.  
+   b. After a delay (say, 300ms) the line should start rising gradually and stop at its intended position.  
 
 4. Making the widget modular
 5. Additional features that you think the widget should have (Mention these in a TODO comments section on your component)
