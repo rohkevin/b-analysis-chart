@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 import { useGlobalContext } from '../context/GlobalContext'
 import Budget from './Budget';
+import BudgetLine from './BudgetLine';
 import MonthGraph from './MonthGraph';
 
 function ChartContainer() {
-  const { getData, data, getBudget, budget, findMax } = useGlobalContext();
+  const { getData, data, getBudget, budget, findMax, chartContainerHeight } = useGlobalContext();
   useEffect(() => {
     getData();
     getBudget();
     findMax();
   }, [])
 
-  // Chart height set to 200px, change as need be
-  // Set max spending / income as height reference point
+  // Chart height default to 200px
   return (
-    <div className="chart-container" style={{height: '200px'}}>
+    <div className="chart-container" style={{height: `${chartContainerHeight || 200}px`}}>
       {
         data && data.map(dataMonth => {
           return (
@@ -28,7 +28,9 @@ function ChartContainer() {
           )
         })
       }
+      <BudgetLine />
       <Budget budget={budget} />
+
     </div>
   )
 }

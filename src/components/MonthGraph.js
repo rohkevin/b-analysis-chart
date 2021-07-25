@@ -21,6 +21,7 @@ function MonthGraph({month, monthToText, spending, income}) {
 
   return (
     <div className="month-graph-container" onClick={()=>getMonthData(month)}>
+
       <div className="month-graph">
         <div className="graph-bar-container">
           <div className="graph-bar-fill spending-color" style={spendingStyle} />
@@ -28,8 +29,8 @@ function MonthGraph({month, monthToText, spending, income}) {
         <div className="graph-bar-container">
           <div className="graph-bar-fill income-color" style={incomeStyle} />
         </div>
-
       </div>
+
       <div className={monthData.month === month ? "graph-label highlight-label-background" : "graph-label"}>
         <p className={monthData.month === month ? "highlight-label-text label-text" : "label-text"} title={monthToText.slice(0,3)}>{monthToText.slice(0,3)}</p>
       </div>

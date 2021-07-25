@@ -7,6 +7,8 @@ const initialState = {
   data: [],
   monthData: {month: '', monthToText: '', spending: 0, income: 0},
   maxValue: 0,
+  chartContainerHeight: 200,
+  budgetHeight: (1+2*0.25+0.5)*16 + 1 // Graph label clearance
 }
 export const GlobalContext = createContext(initialState);
 
@@ -37,17 +39,23 @@ export const GlobalProvider = ({ children }) => {
     })
   }
 
+  const getBudgetHeight = () => {
+    dispatch({
+      type: 'GET_BUDGET_HEIGHT'
+    })
+  }
+
 
   return (
     <GlobalContext.Provider value ={{
       data: state.data,
       budget: state.budget,
-      // spendings: state.spendings,
-      // incomes: state.incomes,
       monthData: state.monthData,
       maxValue: state.maxValue,
+      chartContainerHeight: state.chartContainerHeight,
+      budgetHeight: state.budgetHeight,
       getData, getBudget, getMonthData,
-      findMax,
+      findMax, getBudgetHeight
     }}>
       { children }
     </GlobalContext.Provider>
