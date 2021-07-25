@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../context/GlobalContext'
 
 function BudgetLine() {
-  const { data, maxValue, budget, getBudgetHeight, budgetHeight } = useGlobalContext();
+  const { data, budget, getBudgetHeight, budgetHeight } = useGlobalContext();
   
 
   useEffect(() => {

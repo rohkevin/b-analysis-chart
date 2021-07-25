@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../context/GlobalContext'
 
 function MonthGraph({month, monthToText, spending, income}) {
-  const { maxValue, getMonthData, monthData } = useGlobalContext();
+  const { data, maxValue, getMonthData, monthData } = useGlobalContext();
   const [spendingStyle, setSpendingStyle] = useState({});
   const [incomeStyle, setIncomeStyle] = useState({});
 
@@ -17,7 +17,7 @@ function MonthGraph({month, monthToText, spending, income}) {
     }
     setSpendingStyle(newSpending);
     setIncomeStyle(newIncome);
-  }, [maxValue])
+  }, [data, maxValue])
 
   return (
     <div className="month-graph-container" onClick={()=>getMonthData(month)}>

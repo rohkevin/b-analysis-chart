@@ -10,9 +10,9 @@ export const AppReducer = (state, action) => {
       // Case I: Ideal case
       // Case II: Same length, different spending and income months (11 in spending, 6 in income)
 
-      // Check if spending and income data exists
-      if (spending || income) {
-        if (spending) {
+      // Check if spending or income data exists
+      if (spending.length > 0 || income.length > 0) {
+        if (spending.length > 0) {
           newData = spending.map(spendingItem => {
     
             return {
@@ -24,21 +24,23 @@ export const AppReducer = (state, action) => {
           })
 
         }
-        
-        income.forEach(incomeItem => {
-          let existingMonthData = newData.find(spendingItem => spendingItem.month === incomeItem.month);
-          if (existingMonthData) {
-            existingMonthData.income = incomeItem.income;
-          }
-          else {
-            newData.push({
-              month: incomeItem.month,
-              monthToText: moment().month(incomeItem.month-1).format("MMMM"),
-              spending: 0,
-              income: incomeItem.income
-            });
-          }
-        })
+        if (income.length > 0) {
+          // Check if month has already been added to newData and add income to existing month if it does. If it does not, create a new month object inside newData.
+          income.forEach(incomeItem => {
+            let existingMonthData = newData.find(spendingItem => spendingItem.month === incomeItem.month);
+            if (existingMonthData) {
+              existingMonthData.income = incomeItem.income;
+            }
+            else {
+              newData.push({
+                month: incomeItem.month,
+                monthToText: moment().month(incomeItem.month-1).format("MMMM"),
+                spending: 0,
+                income: incomeItem.income
+              });
+            }
+          })
+        }
         // Use helper function compareMonths to sort months in chronological order
         newData.sort(compareMonths);
         // Initializes default month value to the last month in the array

@@ -17,7 +17,7 @@ function ChartContainer() {
     <div className="chart-container" style={{height: `${chartContainerHeight || 200}px`}}>
       <div className="graphs-container">
         {
-          data && data.map(dataMonth => {
+          data.length > 0 && data.map(dataMonth => {
             return (
               <MonthGraph 
                 key={dataMonth.month} 
@@ -30,8 +30,8 @@ function ChartContainer() {
           })
         }
       </div>
-      <BudgetLine />
-      <Budget budget={budget} />
+      {data.length > 0 && <BudgetLine />}
+      {data.length > 0 && <Budget budget={budget} />}
 
     </div>
   )
