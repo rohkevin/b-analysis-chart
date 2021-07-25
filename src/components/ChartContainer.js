@@ -15,19 +15,21 @@ function ChartContainer() {
   // Chart height default to 200px
   return (
     <div className="chart-container" style={{height: `${chartContainerHeight || 200}px`}}>
-      {
-        data && data.map(dataMonth => {
-          return (
-            <MonthGraph 
-              key={dataMonth.month} 
-              month={dataMonth.month} 
-              monthToText={dataMonth.monthToText}
-              spending={dataMonth.spending} 
-              income={dataMonth.income} 
-            />
-          )
-        })
-      }
+      <div className="graphs-container">
+        {
+          data && data.map(dataMonth => {
+            return (
+              <MonthGraph 
+                key={dataMonth.month} 
+                month={dataMonth.month} 
+                monthToText={dataMonth.monthToText}
+                spending={dataMonth.spending} 
+                income={dataMonth.income} 
+              />
+            )
+          })
+        }
+      </div>
       <BudgetLine />
       <Budget budget={budget} />
 

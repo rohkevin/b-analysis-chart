@@ -83,8 +83,15 @@ p {
 /* *********************************** */
 .chart-container {
   position: relative;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  width: 100%;
+}
+.graphs-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 /* *********************************** */
@@ -168,6 +175,15 @@ p {
 /* *********************************** */
 .budget {
   position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.budget-info {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0.5em;
 }
 .budget-line {
   position: absolute;

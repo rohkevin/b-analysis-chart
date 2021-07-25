@@ -1,5 +1,5 @@
 export const data = {
-"overall_budget": 650,
+"overall_budget": 550,
 "spending": [
   {
     "month": 10,
