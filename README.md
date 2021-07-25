@@ -1,6 +1,9 @@
 # Boro - Spending and Income Analysis Chart
 
-The following component has been made for Boro's Software Engineer Quiz. 
+The Spending and Income Analysis Chart is a graph component created for Boro. 
+The component was created with create-react-app, with MomentJS being the only external library installed.
+
+Additional features have been included in the TODO comments section in App.js.
 
 ## Basic Requirements
 1. Input data might not be sorted by months. You will need to handle this.
@@ -15,7 +18,9 @@ The following component has been made for Boro's Software Engineer Quiz.
 1. Make the widget in a flex layout such that if the parent component includes the widget with flex 0.5 the height of the bars within the widgets change accordingly.
 2. Extra use cases and error handling with code comments.
 3. Make the budget line animated, i.e. once the screen loads, the budget line should rise to its intended position instead of it being there at the same static position all the time.
-  a. Screen loads with the bar chart and the budget line at the very bottom.
-  b. After a delay (say, 300ms) the line should start rising gradually and stop at its intended position.
+
+...a. Screen loads with the bar chart and the budget line at the very bottom.
+...b. After a delay (say, 300ms) the line should start rising gradually and stop at its intended position.
+
 4. Making the widget modular
 5. Additional features that you think the widget should have (Mention these in a TODO comments section on your component)
