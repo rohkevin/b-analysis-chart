@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useGlobalContext } from '../context/GlobalContext'
 
 function BudgetLine() {
@@ -7,7 +7,7 @@ function BudgetLine() {
 
   useEffect(() => {
     getBudgetHeight();
-  }, [budget, budgetHeight, data])
+  }, [budget, data])
   return (
     <div className="budget-line" style={{bottom: budgetHeight}}>
 
