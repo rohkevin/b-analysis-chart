@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../context/GlobalContext'
 
 function MonthGraph({month, monthToText, spending, income}) {
-  const { data, maxValue, getMonthData, monthData } = useGlobalContext();
+  const { data, maxValue, getMonthData, monthData, graphFlex } = useGlobalContext();
   const [spendingStyle, setSpendingStyle] = useState({});
   const [incomeStyle, setIncomeStyle] = useState({});
 
   useEffect(() => {
+    let multiplier = 1;
+    if (graphFlex < 1) {
+      multiplier = graphFlex;
+    }
     const newSpending = {
-      height: `${(spending/maxValue)*100}%`,
+      height: `${(spending/maxValue)*100*multiplier}%`,
       opacity: 1
     }
     const newIncome = {
-      height: `${(income/maxValue)*100}%`,
+      height: `${(income/maxValue)*100*multiplier}%`,
       opacity: 1
     }
     setSpendingStyle(newSpending);

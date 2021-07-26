@@ -19,6 +19,7 @@ Additional features for future:
 
 import './App.css';
 import ChartContainer from './components/ChartContainer';
+import MainComponent from './components/MainComponent';
 import MonthData from './components/MonthData';
 import { GlobalProvider } from './context/GlobalContext';
 
@@ -27,10 +28,12 @@ function App() {
     <GlobalProvider >
       <div id="app-container">
         <a href="https://github.com/rohkevin/b-analysis-chart" rel="norel noreferrer" target="_blank" className="gh-link">View Repo</a>
-        <div id="component-container">
+        
+        <MainComponent flex={1}>
           <MonthData />
           <ChartContainer />
-        </div>
+        </MainComponent>
+
       </div>
     </GlobalProvider>
   );

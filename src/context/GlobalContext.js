@@ -8,7 +8,8 @@ const initialState = {
   monthData: {month: '', monthToText: '', spending: 0, income: 0},
   maxValue: 0,
   chartContainerHeight: 200,
-  budgetHeight: (1+2*0.25+0.5)*16 + 1 // Graph label clearance
+  budgetHeight: (1+2*0.25+0.5)*16 + 1, // Graph label clearance
+  graphFlex: 1
 }
 export const GlobalContext = createContext(initialState);
 
@@ -33,6 +34,7 @@ export const GlobalProvider = ({ children }) => {
       payload: month
     })
   }
+
   const findMax = () => {
     dispatch({
       type: 'FIND_MAX'
@@ -44,7 +46,13 @@ export const GlobalProvider = ({ children }) => {
       type: 'GET_BUDGET_HEIGHT'
     })
   }
-
+  
+  const getGraphFlex = (flex) => {
+    dispatch({
+      type: 'GET_GRAPH_FLEX',
+      payload: flex
+    })
+  }
 
   return (
     <GlobalContext.Provider value ={{
@@ -54,8 +62,9 @@ export const GlobalProvider = ({ children }) => {
       maxValue: state.maxValue,
       chartContainerHeight: state.chartContainerHeight,
       budgetHeight: state.budgetHeight,
+      graphFlex: state.graphFlex,
       getData, getBudget, getMonthData,
-      findMax, getBudgetHeight
+      findMax, getBudgetHeight, getGraphFlex
     }}>
       { children }
     </GlobalContext.Provider>

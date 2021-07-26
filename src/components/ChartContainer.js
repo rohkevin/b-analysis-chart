@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useGlobalContext } from '../context/GlobalContext'
 import Budget from './Budget';
 import BudgetLine from './BudgetLine';
 import MonthGraph from './MonthGraph';
 
 function ChartContainer() {
-  const { getData, data, getBudget, budget, findMax, chartContainerHeight } = useGlobalContext();
-  useEffect(() => {
-    getData();
-    getBudget();
-    findMax();
-  }, [])
+  const { data, budget, chartContainerHeight } = useGlobalContext();
 
-  // Chart height default to 200px
   return (
     <div className="chart-container" style={{height: `${chartContainerHeight || 200}px`}}>
       <div className="graphs-container">

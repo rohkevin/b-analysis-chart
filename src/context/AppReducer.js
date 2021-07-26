@@ -99,13 +99,30 @@ export const AppReducer = (state, action) => {
         monthData: newMonthData
       }
    
+    case 'GET_GRAPH_FLEX':
+      let flexValue = action.payload;
+      // Increase container height if flex value given is more than 1
+      let newContainerHeight = state.chartContainerHeight;
+      if (flexValue > 1) {
+        newContainerHeight = newContainerHeight * flexValue;
+      }
+      return {
+        ...state,
+        graphFlex: flexValue,
+        chartContainerHeight: newContainerHeight
+      }
+    
     case 'GET_BUDGET_HEIGHT':
       // Label clearance explanation:
       // (Font size (em) + top and bottom padding (em) + top margin (em))*font-size + 1px to prevent layout shift when label is selected (bolded)
       // In the future this code will need to change to something more robust.
       let labelClearance = (1+2*0.25+0.5)*16 + 1;
       let graphHeight = state.chartContainerHeight - labelClearance;
-      let newHeight = labelClearance + graphHeight*(state.budget / state.maxValue);
+      let multiplier = 1;
+      if (state.graphFlex < 1) {
+        multiplier = state.graphFlex;
+      }
+      let newHeight = labelClearance + graphHeight*(state.budget / state.maxValue)*multiplier;
       return {
         ...state,
         budgetHeight: newHeight
