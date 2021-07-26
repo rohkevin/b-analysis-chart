@@ -26,6 +26,7 @@ function App() {
   return (
     <GlobalProvider >
       <div id="app-container">
+        <a href="https://github.com/rohkevin/b-analysis-chart" rel="norel noreferrer" target="_blank" className="gh-link">View Repo</a>
         <div id="component-container">
           <MonthData />
           <ChartContainer />
