@@ -57,8 +57,16 @@ export const AppReducer = (state, action) => {
         }
 
       } else {
+        let resetMonth = {
+          month: '',
+          monthToText: '',
+          spending: 0,
+          income: 0
+        }
         return {
-          ...state
+          ...state,
+          data: newData,
+          monthData: resetMonth
         }
       }
 
