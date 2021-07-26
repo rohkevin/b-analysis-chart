@@ -29,16 +29,23 @@ p {
 #app-container {
   width: 100vw;
   min-height: 100vh;
+  padding: 0 1em;
   display: grid;
   place-items: center;
   background-color: var(--backgroundColor);
 }
-.gh-link {
+.ext-links-container {
   position: fixed;
   top: 1em;
   right: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
-.gh-link:hover {
+.ext-link {
+  line-height: 1.6;
+}
+.ext-link:hover {
   opacity: 0.8;
 }
 #component-container {

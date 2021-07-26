@@ -27,7 +27,10 @@ function App() {
   return (
     <GlobalProvider >
       <div id="app-container">
-        <a href="https://github.com/rohkevin/b-analysis-chart" rel="norel noreferrer" target="_blank" className="gh-link">View Repo</a>
+        <div className="ext-links-container">
+          <a href="https://github.com/rohkevin/b-analysis-chart" rel="norel noreferrer" target="_blank" className="ext-link">View Repo</a>
+          <a href="https://b-income-spending-analysis.netlify.app/" rel="norel noreferrer" target="_blank" className="ext-link">View Live</a>
+        </div>
         
         <MainComponent flex={1}>
           <MonthData />
