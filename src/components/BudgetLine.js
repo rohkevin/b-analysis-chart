@@ -12,7 +12,6 @@ function BudgetLine() {
     <div className="budget-line" style={{bottom: budgetHeight}} />
   )
 
-
 }
 
 export default BudgetLine
